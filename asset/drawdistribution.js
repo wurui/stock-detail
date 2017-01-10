@@ -1,4 +1,4 @@
-define(['zepto','./highcharts'],function(Z,Highcharts){
+define(['oxjs','./highcharts'],function(OX,Highcharts){
     var Highcharts=Highcharts||window.Highcharts;
 
 
@@ -98,7 +98,7 @@ define(['zepto','./highcharts'],function(Z,Highcharts){
             $node.attr('id', 'J_chart' + Math.random().toString().substr(2, 8))
         }
         var sectionCount=sectionCount||5;
-        $.getJSON('http://momofox.com:8000/analyze/overview?symbol='+symbol.toUpperCase()+'&historicalLimit=250&sectionCount='+sectionCount+'&callback=?',function(r){
+        OX.getJSON('http://momofox.com:8000/analyze/overview?symbol='+symbol.toUpperCase()+'&historicalLimit=250&sectionCount='+sectionCount,function(r){
             r.series=createSeries(r,sectionCount);
 
             drawChart($node,r)

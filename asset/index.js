@@ -1,6 +1,10 @@
-define(['./drawhistorical','./drawdistribution','./scroll_attract'],function(drawhistorical,drawdistribution,scrollAttract){
+define(['oxjs','./drawhistorical','./drawdistribution','./scroll_attract'],function(OX,drawhistorical,drawdistribution,scrollAttract){
   return {
+
     init:function($mod){
+        OX.config({
+            devHost:'https://www.openxsl.com'
+        })
         var currentSymbol=location.hash.substr(1);
         var mainNode=$mod.find('div.J_mainInfo'),
             hisNode=$mod.find('div.J_historicalChart'),
@@ -17,7 +21,7 @@ define(['./drawhistorical','./drawdistribution','./scroll_attract'],function(dra
          * */
 
         var fillMainInfo=function($node,symbol){
-            $.getJSON('http://momofox.com:8000/analyze/overview?symbol='+symbol.toUpperCase()+'&historicalLimit=250&sectionCount='+sectionCount+'&callback=?',function(r){
+            OX.getJSON('http://momofox.com:8000/analyze/overview?symbol='+symbol.toUpperCase()+'&historicalLimit=250&sectionCount='+sectionCount,function(r){
                 var data={
                     marketcap: ((r.issue * r.lastPrice)/10e8).toFixed(1)+'B',
                     avgPercent: (r.avgLow*100).toFixed(1)+'%',
@@ -28,7 +32,7 @@ define(['./drawhistorical','./drawdistribution','./scroll_attract'],function(dra
 
                 };
                 r= $.extend(r,data);
-                console.log(r)
+                //console.log(r)
                 $node.find('[data-key]').each(function(){
                     //console.log(n,this)
                     this.innerHTML=r[this.getAttribute('data-key')]||''

@@ -1,4 +1,4 @@
-define(['zepto','./highcharts'],function(Z,Highcharts){
+define(['oxjs','./highcharts'],function(OX,Highcharts){
     var Highcharts=Highcharts||window.Highcharts;
     var getMed=function(){
         var rows=this.concat.call([],this);
@@ -156,7 +156,7 @@ define(['zepto','./highcharts'],function(Z,Highcharts){
         if(!$node.attr('id')) {
             $node.attr('id', 'J_chart' + Math.random().toString().substr(2, 8))
         }
-        $.getJSON('http://momofox.com:8000/historical/gethistory?symbol='+symbol.toUpperCase()+'&limit=250&callback=?',function(r){
+        OX.getJSON('http://momofox.com:8000/historical/gethistory?symbol='+symbol.toUpperCase()+'&limit=250',function(r){
 
             drawChart($node,createChartData(r))
         })
