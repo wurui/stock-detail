@@ -1,3 +1,48 @@
-.oxmod-stock-detail{
-/* CSS */
- }
+.oxmod-stock-detail {
+  /* CSS */
+  height: 200px;
+  width: 100%;
+  overflow-x: scroll;
+  background-color: rgba(0, 0, 0, 0.8);
+  text-align: center;
+  color: #fff;
+}
+.oxmod-stock-detail h3 {
+  font-size: 13px;
+  font-weight: 400;
+  height: 22px;
+  line-height: 28px;
+}
+.oxmod-stock-detail .maintable {
+  width: 90%;
+  margin: 5px 5%;
+  border-top: solid 1px #fff;
+}
+.oxmod-stock-detail .maintable th,
+.oxmod-stock-detail .maintable td {
+  height: 28px;
+  border-bottom: solid 1px #fff;
+}
+.oxmod-stock-detail .maintable th {
+  text-align: left;
+  font-weight: 400;
+  color: #999;
+  font-size: 12px;
+}
+.oxmod-stock-detail .maintable td {
+  font-size: 14px;
+  text-align: right;
+}
+.oxmod-stock-detail .maintable td:nth-child(2) {
+  padding-right: 18px;
+}
+.oxmod-stock-detail .slider {
+  width: 300%;
+  height: 100%;
+}
+.oxmod-stock-detail .slider li {
+  color: #fff;
+  float: left;
+  width: 33.33333333333%;
+  height: 100%;
+}
