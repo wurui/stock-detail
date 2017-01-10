@@ -42,7 +42,7 @@ define(['oxjs','./drawhistorical','./drawdistribution','./scroll_attract'],funct
         };
 
         $(window).on('hashchange',function(){
-            //console.log('hashchange')
+            mainNode.removeAttr(attrKey);
             hisNode.removeAttr(attrKey);
             disNode.removeAttr(attrKey);
             currentSymbol=location.hash.substr(1);
