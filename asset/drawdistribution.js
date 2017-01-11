@@ -13,6 +13,9 @@ define(['oxjs','./highcharts'],function(OX,Highcharts){
                 spacingRight:10,
                 height:200
             },
+            credits:{
+                enabled:false
+            },
             title: {
                 text: ''//data.symbol+' ['+data.min+'~'+data.max+']'
             },

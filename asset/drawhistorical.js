@@ -29,6 +29,9 @@ define(['oxjs','./highcharts'],function(OX,Highcharts){
         Highcharts.chart($node.attr('id'),{
             colors: ['#7cb5ec',  '#90ed7d', '#f7a35c', '#8085e9',
                 '#f15c80', '#e4d354', '#8085e8', '#8d4653', '#91e8e1'],
+            credits:{
+                enabled:false
+            },
 
             chart: {
                 backgroundColor:'rgba(0,0,0,0)',
@@ -44,7 +47,8 @@ define(['oxjs','./highcharts'],function(OX,Highcharts){
                 //text: data.symbol+'['+slashDate(data.startDate)+' ~ '+slashDate(data.endDate)+']'
             },
             subtitle: {
-                text:'' //document.ontouchstart === undefined ?
+                style:{color:'#fff'},
+                text:data.symbol+' ['+data.startDate+' ~ '+data.endDate+']' //document.ontouchstart === undefined ?
                 //'Click and drag in the plot area to zoom in'
 
             },
@@ -146,7 +150,7 @@ define(['oxjs','./highcharts'],function(OX,Highcharts){
             pointStart: startDate,
             data:arrMed
         }];
-        //data.symbol=symbol;
+        data.symbol= r.symbol;
         data.startDate=rows[0].date;
         data.endDate=rows[rows.length-1].date;
         return data;
@@ -157,7 +161,7 @@ define(['oxjs','./highcharts'],function(OX,Highcharts){
             $node.attr('id', 'J_chart' + Math.random().toString().substr(2, 8))
         }
         OX.getJSON('http://momofox.com:8000/historical/gethistory?symbol='+symbol.toUpperCase()+'&limit=250',function(r){
-
+            r.symbol=symbol;
             drawChart($node,createChartData(r))
         })
 
