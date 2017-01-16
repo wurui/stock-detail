@@ -32,6 +32,9 @@ define(['oxjs','./highcharts'],function(OX,Highcharts){
             credits:{
                 enabled:false
             },
+            tooltip:{
+                enabled:false
+            },
 
             chart: {
                 backgroundColor:'rgba(0,0,0,0)',

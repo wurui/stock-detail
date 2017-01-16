@@ -55,8 +55,13 @@ define(['oxjs','./highcharts'],function(OX,Highcharts){
             legend: {
                 enabled: false
             },
+            /*
             tooltip: {
+
                 pointFormat: 'Fq: <b>{point.y:1f} </b>'
+            },*/
+            tooltip:{
+                enabled:false
             },
             series: [{
                 name: 'Frequency',

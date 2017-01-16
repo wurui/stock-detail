@@ -6,6 +6,15 @@
   background-color: rgba(0, 0, 0, 0.8);
   text-align: center;
   color: #fff;
+  /*transition: all .3s;
+  &.hidden{
+    margin-bottom: -200px;
+  }*/
+}
+.oxmod-stock-detail .placeholder {
+  color: #999;
+  font-size: 30px;
+  line-height: 190px;
 }
 .oxmod-stock-detail h3 {
   font-size: 13px;
