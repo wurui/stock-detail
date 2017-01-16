@@ -18,7 +18,7 @@
             paths: {
               zepto: 'https://oxm1.cc/js/zepto.min',
               mustache: 'https://oxm1.cc/js/mustache',
-              oxjs:'//0.openxsl.com/js/oxjs'
+              oxjs:'https://oxm1.cc/js/oxjs'
             },
             packages:[{name:"oxm",location:'https://oxm1.cc/oxm'}]
           });
