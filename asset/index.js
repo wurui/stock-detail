@@ -84,7 +84,7 @@ define(['require','mustache','oxjs', './scroll_attract'], function (require,Must
             var checkScroll = function () {
                 var index = Math.round(this.scrollLeft / this.clientWidth);
                 if (!currentSymbol) {
-                    mainNode.html('<div class="placeholder">no symbol</div>')
+                    mainNode.html('<div class="placeholder">select a symbol</div>')
                     return
                 }
 

@@ -9,7 +9,6 @@
                 <li>
                     <div class="J_mainInfo">
 
-
                     </div>
                 </li>
                 <li>
@@ -27,7 +26,7 @@
             <script type="text/tpl" class="TPL_main"><![CDATA[
             {{^symbol}}<div class="placeholder">no symbol</div>{{/symbol}}
             {{#symbol}}
-            <h3 data-key="name">{{symbol}}</h3>
+            <h3 data-key="name">{{name}}</h3>
             <table class="maintable" cellspacing="0" cellpadding="0">
                 <tbody>
                     <tr>
