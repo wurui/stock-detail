@@ -8,7 +8,10 @@ define(['zepto'],function(){
             delta=Math.abs(delta)<1?(delta>0?1:-1):delta;
 //console.log(delta,box.scrollLeft,left)
             box.scrollLeft+=delta;
-            setTimeout(function () {
+            if(scrollto.TO){
+                clearTimeout(scrollto.TO);
+            }
+            scrollto.TO=setTimeout(function () {
                 scrollto(box, left,fn);
             },16)
         }else{
