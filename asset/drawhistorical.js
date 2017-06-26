@@ -115,7 +115,10 @@ define(['oxjs','./highcharts'],function(OX,Highcharts){
             throw new Error('createSeries error: no data')
             return;
         };
-        rows.reverse();
+        //rows.reverse();
+        rows.sort(function(a,b){
+            return a.date- b.date;
+        });
         var startDate=number2date(rows[0].date);
 
         var data={},
