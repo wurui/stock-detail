@@ -1,6 +1,6 @@
 {
   "name": "stock-detail",
   "version": "1.0.0",
-  "apiDependencies": null
+  "apiDependencies": ["maybelow-overview","maybelow-distribution","stock-historical"]
 }
 

@@ -2,9 +2,9 @@ define(['oxjs','./highcharts'],function(OX,Highcharts){
     var Highcharts=Highcharts||window.Highcharts;
 
 
-    var drawChart=function($node,data){
+    var drawChart=function(nodeId,title,series){
         // console.log(JSON.stringify(data.series))
-        Highcharts.chart($node.attr('id'),{
+        Highcharts.chart(nodeId,{
             chart: {
                 type: 'column',
                 backgroundColor:'rgba(0,0,0,0)',
@@ -21,7 +21,7 @@ define(['oxjs','./highcharts'],function(OX,Highcharts){
             },
             subtitle: {
                 style:{color:'#eee'},
-                text: data.symbol+' ['+data.min+'~'+data.max+']'//'Last:<b>'+data.lastPrice+'</b>;  Avg:<b>'+data.avg+'</b>;  Med:<b>'+data.med+'</b>'
+                text: title//'Last:<b>'+data.lastPrice+'</b>;  Avg:<b>'+data.avg+'</b>;  Med:<b>'+data.med+'</b>'
             },
             xAxis: {
                 type: 'category',
@@ -65,7 +65,7 @@ define(['oxjs','./highcharts'],function(OX,Highcharts){
             },
             series: [{
                 name: 'Frequency',
-                data:data.series,
+                data:series,
                 dataLabels: {
                     enabled: true,
                     //rotation: -90,
@@ -83,10 +83,10 @@ define(['oxjs','./highcharts'],function(OX,Highcharts){
     };
 
 
-    var createSeries=function(data,sectionCount){
+    var createSeries=function(data){
 
         var sec=data.min;
-        var unit=(data.max-data.min)/sectionCount;
+        var unit=(data.max-data.min)/data.sections.length;
         var series=[];
         var i=0;
         while(i<data.sections.length){
@@ -101,16 +101,44 @@ define(['oxjs','./highcharts'],function(OX,Highcharts){
 
 
 
-    var drawDistribution=function($node,symbol,sectionCount){
+    var drawDistribution=function($node,symbol,r){
         if(!$node.attr('id')) {
             $node.attr('id', 'J_chart' + Math.random().toString().substr(2, 8))
         }
-        var sectionCount=sectionCount||5;
-        OX.getJSON('http://momofox.com:8000/analyze/overview?symbol='+symbol.toUpperCase()+'&historicalLimit=250&sectionCount='+sectionCount,function(r){
-            r.series=createSeries(r,sectionCount);
+        //var sectionCount=sectionCount||5;
+        var r=r || {
+            lowest:17.33,
+            highest:31.23,
+            distribution:[
+                {
+                    range:17.34,
+                    count:12
+                },
+                {
+                    range:20.34,
+                    count:38
+                }
+            ]
 
-            drawChart($node,r)
-        })
+        }
+
+        var series=[]///createSeries(r);
+        if(r && r.distribution && r.distribution.length){
+            for(var i=0,n;n=r.distribution[i++];){
+                series.push([n.range,n.count])
+            }
+
+        }else{
+
+        }
+
+            
+
+        drawChart($node.attr('id'), symbol+' ['+r.lowest+'~'+r.highest+']',series)
+            /*
+        OX.getJSON('http://momofox.com:8000/analyze/overview?symbol='+symbol.toUpperCase()+'&historicalLimit=250&sectionCount='+sectionCount,function(r){
+
+        })*/
     };
     return drawDistribution
 

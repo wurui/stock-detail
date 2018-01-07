@@ -11,6 +11,51 @@
     <icon>//oxm1.cc/img/app_default.png</icon>
   </p>
   <data>
+      <maybelow-overview>
+        <i>
+          <company>General Electric Company</company>
+          <symbol>GE</symbol>
+          <date>20180103</date>
+          <lastclose>18.15</lastclose>
+          <issue>8961233000</issue>
+          <avg>25.84</avg>
+          <med>26.91</med>
+          <highest>31.61</highest>
+          <lowest>17.36</lowest>
+          <days>250</days>
+        </i>
+        
+      </maybelow-overview>
+      <maybelow-distribution>
+        <symbol>GE</symbol>
+        <sectioncount>5</sectioncount>
+        <distribution>
+          <i>
+            <range>17.44</range>
+            <count>24</count>
+          </i>
+          <i>
+            <range>20.1</range>
+            <count>24</count>
+          </i>
+          <i>
+            <range>23.5</range>
+            <count>24</count>
+          </i>
+          <i>
+            <range>26.8</range>
+            <count>24</count>
+          </i>
+          <i>
+            <range>30.1</range>
+            <count>24</count>
+          </i>
+        </distribution>
+        <days>250</days>
+      </maybelow-distribution>
   </data>
+  <q>
+    <symbol>NVO</symbol>
+  </q>
 
 </root>

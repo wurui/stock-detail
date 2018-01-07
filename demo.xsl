@@ -7,25 +7,26 @@
       <head>
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
         <title>stock-detail Demo</title>
-        <link rel="stylesheet" type="text/css" href="https://oxm1.cc/css/ea.css" />
+        <link rel="stylesheet" type="text/css" href="https://a.oxm1.cc/css/ea.css" />
         <link rel="stylesheet" type="text/css" href="asset/index.css" />
-        <script src="https://oxm1.cc/js/require.js"></script>
+        <script src="https://l.oxm1.cc/3rd/require.js"></script>
       </head>
       <body>
         <oxbottombar><xsl:call-template name="wurui.stock-detail" /></oxbottombar>
         <script><![CDATA[
-          require.config({
-            paths: {
-              zepto: 'https://oxm1.cc/js/zepto.min',
-              mustache: 'https://oxm1.cc/js/mustache',
-              oxjs:'https://oxm1.cc/js/oxjs'
-            },
-            packages:[{name:"oxm",location:'https://oxm1.cc/oxm'}]
-          });
-          require(['zepto','oxjs','asset/index'],function(undefine,oxjs,Mod){
-          Mod && Mod.init && Mod.init($('.J_OXMod'));
-          })
-        ]]></script>
+            require.config({
+              paths: {
+                jquery: 'https://l.oxm1.cc/3rd/jquery',
+                zepto: 'https://l.oxm1.cc/3rd/zepto.min',
+                mustache: 'https://l.oxm1.cc/3rd/mustache',
+                oxjs:'https://a.oxm1.cc/js/oxjs-dev'
+              },
+              packages:[{name:"oxm",location:'https://a.oxm1.cc/oxm'}]
+            });
+            require(['zepto','oxjs','asset/index'],function(undefine,oxjs,Mod){
+            Mod && Mod.init && Mod.init($('.J_OXMod'));
+            })
+          ]]></script>
       </body>
 
     </html>
