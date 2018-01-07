@@ -2,14 +2,17 @@ define(['require','oxjs', './scroll_attract'], function (require,OX, scrollAttra
 
     var sectionCount = 5;
     var tpl;
-    var drawhistorical = function (node, symbol) {
+    var drawhistorical = function () {
+            var args=[].slice.call(arguments,0)
             require(['./drawhistorical'], function (fn) {
-                fn(node, symbol)
+                fn.apply(null,args)
             })
         },
         drawdistribution = function (node, symbol) {
+            var args=[].slice.call(arguments,0)
             require(['./drawdistribution'], function (fn) {
-                fn(node, symbol)
+                
+                fn.apply(null,args)
             })
         };
 
