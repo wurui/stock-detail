@@ -107,25 +107,17 @@ define(['oxjs','./highcharts'],function(OX,Highcharts){
         }
         //var sectionCount=sectionCount||5;
         var r=r || {
-            lowest:17.33,
-            highest:31.23,
-            distribution:[
-                {
-                    range:17.34,
-                    count:12
-                },
-                {
-                    range:20.34,
-                    count:38
-                }
-            ]
+            "symbol":"BABA","sectioncount":5,"days":250,"highest":191.19,"lowest":94.72,
+            "distribution":
+            [{"range":94.72,"count":71},{"range":114.014,"count":32},{"range":133.308,"count":34},{"range":152.602,"count":38},{"range":171.896,"count":74}]
+            }        
 
-        }
+
 
         var series=[]///createSeries(r);
         if(r && r.distribution && r.distribution.length){
             for(var i=0,n;n=r.distribution[i++];){
-                series.push([n.range,n.count])
+                series.push([n.range.toString(),n.count])
             }
 
         }else{
